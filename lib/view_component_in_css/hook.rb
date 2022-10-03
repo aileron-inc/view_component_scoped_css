@@ -4,7 +4,7 @@ module ViewComponentInCss
   #
   # Hook before_render to view component to provide inline css
   #
-  module Context
+  module Hook
     extend ActiveSupport::Concern
     included do
       include ActiveSupport::Callbacks

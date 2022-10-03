@@ -4,17 +4,17 @@ module ViewComponentInCss
   #
   # style tag for outputting inline css
   #
-  class Tag
+  class InlineCss
     def initialize(view_component)
       @view_component = view_component
     end
     attr_reader :view_component
 
     def call
-      view_component.tag.style(component_css, data: { module: self.class.name })
+      view_component.tag.style(css, data: { module: self.class.name })
     end
 
-    def component_style
+    def css
       view_component.raw(
         ViewComponentInCss::Loader.new(view_component.class).call
       )

@@ -13,6 +13,17 @@ module ViewComponentInCss
 
   extend ActiveSupport::Autoload
   autoload :Loader
+  autoload :CurrentContext
   autoload :Tag
-  autoload :Context
+  autoload :Hook
+  autoload :Css
+  autoload :Config
+
+  def self.configure
+    yield config
+  end
+
+  def self.config
+    @config ||= Config.new
+  end
 end
